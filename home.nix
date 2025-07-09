@@ -12,6 +12,9 @@
     yazi
     hyprpaper
     btop
+    loupe
+    clapper
+    nautilus
   ];
 
   gtk = {
