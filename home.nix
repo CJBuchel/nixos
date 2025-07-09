@@ -11,6 +11,7 @@
     zsh-powerlevel10k
     yazi
     hyprpaper
+    btop
   ];
 
   gtk = {
@@ -46,6 +47,7 @@
     settings = {
       font_family = "JetBrainsMono Nerd Font";
       font_size = 11;
+      background_opacity = "0.85";
     };
   };
   
@@ -76,6 +78,24 @@
     xwayland.enable = true;
 
     settings = {
+      
+      # Dracula color variables (for consistency)
+      "$dracula-bg" = "0xff282a36";
+      "$dracula-current" = "0xff44475a";
+      "$dracula-foreground" = "0xfff8f8f2";
+      "$dracula-pink" = "0xffff79c6";      # #ff79c6
+      "$dracula-purple" = "0xffbd93f9";    # #bd93f9
+      "$dracula-cyan" = "0xff8be9fd";      # #8be9fd
+      
+      general = {
+        gaps_in = 2;
+        gaps_out = 5;
+        border_size = 2;
+
+        "col.active_border" = "$dracula-pink $dracula-purple 45deg";
+        "col.inactive_border" = "$dracula-current";
+      };
+
       exec-once = [
         "hyprpaper"
       ];
@@ -138,7 +158,7 @@
   };
   
   # Wallpaper
-  home.file."wallpapers/wallpaper.jpg".source = ./wallpaper.jpg;
+  home.file."wallpaper.jpg".source = ./wallpapers/wallpaper.jpg;
   services.hyprpaper = {
     enable = true;
     settings = {  
