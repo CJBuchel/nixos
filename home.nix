@@ -13,6 +13,33 @@
     hyprpaper
   ];
 
+  gtk = {
+    enable = true;
+    # Dracula GTK theme (supports GTK2, GTK3, GTK4)
+    theme = {
+      package = pkgs.dracula-theme;
+      name = "Dracula";
+    };
+    
+    # Dracula-compatible icon theme
+    iconTheme = {
+      package = pkgs.dracula-icon-theme;
+      name = "Dracula";
+    };
+    
+    # Dracula cursor theme
+    cursorTheme = {
+      package = pkgs.dracula-theme;
+      name = "Dracula-cursors";
+      size = 24;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+  };
+
   programs.kitty = {
     enable = true;
     themeFile = "tokyo_night_night";
