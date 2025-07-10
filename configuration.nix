@@ -6,7 +6,7 @@
 let
   home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
 in
-{
+  {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -16,7 +16,7 @@ in
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.users.cj = import ./home.nix;
+  home-manager.users.cj = import ./home-manager/home.nix;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -39,7 +39,7 @@ in
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_AU.UTF-8";
     LC_IDENTIFICATION = "en_AU.UTF-8";
-    LC_MEASUREMENT = "en_AU.UTF-8";
+    lc_measurement = "en_AU.UTF-8";
     LC_MONETARY = "en_AU.UTF-8";
     LC_NAME = "en_AU.UTF-8";
     LC_NUMERIC = "en_AU.UTF-8";
@@ -82,13 +82,14 @@ in
     dunst
     libnotify
     wofi
+    wl-clipboard
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     jetbrains-mono
   ];
-  
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
