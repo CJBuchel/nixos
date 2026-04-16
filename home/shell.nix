@@ -13,6 +13,8 @@
       ls = "ls --color=auto";
       ll = "ls -lah --color=auto";
       nv = "nvim";
+      nix-shell = "nix shell --impure";
+      nix-run = "nix run --impure";
     };
 
     initContent = ''
@@ -29,5 +31,9 @@
         error_symbol = "[❯](bold red)";
       };
     };
+  };
+
+  home.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
 }

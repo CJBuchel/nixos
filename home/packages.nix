@@ -14,6 +14,7 @@
     jq
     unzip
     yazi
+    fastfetch
 
     # Wayland / desktop
     waybar
@@ -28,10 +29,9 @@
     networkmanagerapplet
     nwg-look         # GTK theme switcher UI
     imv
-
-    xfce.thunar
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
+    thunar
+    thunar-volman
+    thunar-archive-plugin
     tumbler
 
     # Dev
@@ -42,5 +42,6 @@
     # Apps
     obsidian
     spotify
+    discord
   ];
 }

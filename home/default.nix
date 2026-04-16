@@ -13,6 +13,7 @@
     ./btop.nix
     ./wofi.nix
     ./mpv.nix
+    ./mimetypes.nix
   ];
 
   home.username = "cj";
