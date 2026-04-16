@@ -92,7 +92,7 @@ return {
         update_in_insert = false,
       })
 
-      vim.api.nvim_create_autocmd("LspAttach", {
+      vim.api.nvim_create_autocmd({
         callback = function(ev)
           local map = vim.keymap.set
           local opts = { buffer = ev.buf, silent = true }
@@ -104,7 +104,7 @@ return {
           map("n", "[d",         vim.diagnostic.goto_prev, opts)
           map("n", "]d",         vim.diagnostic.goto_next, opts)
         end,
-      })
+      }, "LspAttach")
     end,
   },
 }
