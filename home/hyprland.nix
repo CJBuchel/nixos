@@ -12,7 +12,6 @@
       # Autostart
       exec-once = [
         "waybar"
-        "hyprpaper"
         "nm-applet --indicator"
         "blueman-applet"
       ];
@@ -39,6 +38,9 @@
           enabled = true;
           size = 6;
           passes = 2;
+          new_optimizations = true;
+          xray = false;
+          ignore_opacity = false;
         };
         shadow = {
           enabled = true;
@@ -69,8 +71,7 @@
           "layersIn,      1, 4,    easeOutQuint, fade"
           "layersOut,     1, 1.5,  linear,       fade"
           "fadeLayersIn,  1, 1.79, almostLinear"
-          "fadeLayersOut, 1, 1.39, almostLinear"
-          "workspaces,    1, 1.94, almostLinear, fade"
+          "fadeLayersOut, 1, 1.39, almostLinear" "workspaces,    1, 1.94, almostLinear, fade"
           "workspacesIn,  1, 1.21, almostLinear, fade"
           "workspacesOut, 1, 1.94, almostLinear, fade"
           "zoomFactor,    1, 7,    quick"
@@ -100,7 +101,7 @@
         "$mod, T, exec, kitty"
         "$mod, Q, killactive"
         "$mod, M, exit"
-        "$mod, E, exec, kitty -e yazi"
+        "$mod, E, exec, thunar"
         "$mod, V, togglefloating"
         "$mod, R, exec, wofi --show drun"
         "$mod, P, pseudo"
@@ -152,13 +153,15 @@
         ", XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
+
+      windowrule = [
+        "opacity 0.92 0.85, match:class kitty"
+        "opacity 0.95 0.90, match:class thunar"
+        "opacity 0.95 0.90, match:class wofi"
+        "opacity 1.0 1.0,   match:class firefox"
+        "opacity 1.0 1.0,   match:class steam"
+        "opacity 1.0 1.0,   match:class mpv"
+      ]; 
     };
   };
-
-  # hyprpaper config
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ~/Pictures/wallpaper.jpg
-    wallpaper = ,~/Pictures/wallpaper.jpg
-    splash = false
-  '';
 }

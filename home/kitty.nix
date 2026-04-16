@@ -10,6 +10,8 @@
     settings = {
       # Tokyo Night / Night Owl feel
       background            = "#011627";
+      background_opacity    = "0.92";
+      background_blur       = "1";
       foreground            = "#d6deeb";
       selection_background  = "#1d3b53";
       selection_foreground  = "#d6deeb";

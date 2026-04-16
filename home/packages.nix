@@ -27,6 +27,12 @@
     blueman
     networkmanagerapplet
     nwg-look         # GTK theme switcher UI
+    imv
+
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
+    tumbler
 
     # Dev
     rustup
