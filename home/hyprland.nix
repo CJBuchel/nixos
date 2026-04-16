@@ -15,7 +15,6 @@
         "hyprpaper"
         "nm-applet --indicator"
         "blueman-applet"
-        "hypridle"
       ];
 
       env = [
@@ -89,6 +88,11 @@
         preserve_split = true;
       };
 
+      windowrulev = [
+        "noborder, class:^(wofi)$"
+        "rounding 0, class:^(wofi)$"
+      ];
+
       # Keybinds — $mod = Super key
       "$mod" = "SUPER";
 
@@ -102,6 +106,7 @@
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
         "$mod, F, fullscreen"
+        "$mod, L, exec, hyprlock"
 
         # Move focus
         "$mod, left,  movefocus, l"

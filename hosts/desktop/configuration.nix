@@ -32,8 +32,13 @@
 
   services.xserver.xkb = { layout = "us"; variant = ""; };
 
+  # Graphics
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true; # required for steam
+  };
+
   # Nvidia
-  hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
@@ -46,24 +51,21 @@
   # Hyprland (system-level enable, actual config lives in home manager)
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
     xwayland.enable = true;
   };
 
-  # Login manager
+  # Universal wayland manager
+  programs.uwsm = {
+    enable = true;
+  };
+
+  # Login greeter (simple terminal based)
   services.greetd = {
     enable = true;
     settings.default_session = {
       command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd 'uwsm start hyprland-uwsm.desktop'";
       user = "greeter";
-    };
-  };
-
-  programs.uwsm = {
-    enable = true;
-    waylandCompositors.hyprland = {
-      prettyName = "Hyprland";
-      comment = "Hyprland via UWSM";
-      binPath = "/run/current-system/sw/bin/Hyprland";
     };
   };
 
@@ -85,6 +87,15 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;
+
+  # Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = false;
+    gamescopeSession.enable = true;
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+  };
 
   # System-level packages (things that need to be system-wide)
   environment.systemPackages = with pkgs; [

@@ -9,6 +9,7 @@
     shellAliases = {
       rebuild = "git -C ~/nixos-config add -A && sudo nixos-rebuild switch --flake ~/nixos-config#andromeda";
       rebuild-push = "rebuild && git -C ~/nixos-config push";
+      reubild-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild boot --flake ~/nixos-config#andromeda";
       ls = "ls --color=auto";
       ll = "ls -lah --color=auto";
       nv = "nvim";

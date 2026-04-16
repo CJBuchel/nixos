@@ -9,6 +9,8 @@
     ./kitty.nix
     ./neovim.nix
     ./theme.nix
+    ./btop.nix
+    ./wofi.nix
   ];
 
   home.username = "cj";
