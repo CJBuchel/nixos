@@ -11,19 +11,14 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {
-      ensure_installed = {
-        "lua_ls",
-        "ts_ls",
-      },
-      -- automatically calls vim.lsp.enable() for installed servers
+      -- servers to install are set in languages.lua
+      ensure_installed = {},
       automatic_enable = true,
     },
   },
 
-  -- Still needed in runtimepath for server definitions
   { "neovim/nvim-lspconfig" },
 
-  -- Completions
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -42,7 +37,7 @@ return {
           expand = function(args) luasnip.lsp_expand(args.body) end,
         },
         mapping = cmp.mapping.preset.insert({
-          ["<Tab>"] = cmp.mapping(function(fallback)
+          ["<Tab>"]     = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.confirm({ select = true })
             elseif luasnip.expand_or_jumpable() then
@@ -66,24 +61,14 @@ return {
     end,
   },
 
-  -- LSP configuration using native API
   {
     "hrsh7th/cmp-nvim-lsp",
     config = function()
       local caps = require("cmp_nvim_lsp").default_capabilities()
 
-      vim.lsp.config("lua_ls", {
-        capabilities = caps,
-        settings = {
-          Lua = {
-            diagnostics = { globals = { "vim" } },
-          },
-        },
-      })
-
-      vim.lsp.config("ts_ls", {
-        capabilities = caps,
-      })
+      -- LSP servers are configured in languages.lua
+      -- capabilities are set here so languages.lua can reference them
+      vim.g.lsp_capabilities = caps
 
       vim.diagnostic.config({
         virtual_text = true,
@@ -92,19 +77,18 @@ return {
         update_in_insert = false,
       })
 
-      vim.api.nvim_create_autocmd({
+      vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
           local map = vim.keymap.set
           local opts = { buffer = ev.buf, silent = true }
-          map("n", "gd",         vim.lsp.buf.definition,   opts)
-          map("n", "K",          vim.lsp.buf.hover,        opts)
-          map("n", "<leader>rn", vim.lsp.buf.rename,       opts)
-          map("n", "<leader>ca", vim.lsp.buf.code_action,  opts)
-          map("n", "<leader>f",  vim.lsp.buf.format,       opts)
-          map("n", "[d",         vim.diagnostic.goto_prev, opts)
-          map("n", "]d",         vim.diagnostic.goto_next, opts)
+          map("n", "gd", vim.lsp.buf.definition, opts)
+          map("n", "K", vim.lsp.buf.hover, opts)
+          map("n", "<leader>rn", vim.lsp.buf.rename, opts)
+          map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+          map("n", "[d", vim.diagnostic.goto_prev, opts)
+          map("n", "]d", vim.diagnostic.goto_next, opts)
         end,
-      }, "LspAttach")
+      })
     end,
   },
 }

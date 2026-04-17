@@ -14,7 +14,7 @@ require("lazy").setup({
     { import = "plugins.ui" },
     { import = "plugins.editor" },
     { import = "plugins.lsp" },
+    { import = "plugins.languages" },
   },
   change_detection = { notify = false },
 })
-
