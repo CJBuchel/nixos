@@ -73,6 +73,10 @@
     enable = true;
     libraries = with pkgs; [
       stdenv.cc.cc.lib
+      zlib
+      glib
+      gtk3
+      libX11
     ];
   };
 
@@ -104,7 +108,14 @@
     git
     gh
     gcc
+    distrobox
+    podman
   ];
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
 
   # Audio
   services.pipewire = {
@@ -118,7 +129,11 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [ 
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common.default = "*";
   };
 
   # Fonts

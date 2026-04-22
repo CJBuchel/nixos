@@ -2,11 +2,11 @@
 
 {
   home.packages = with pkgs; [
-    # Browser
+    # browser
     google-chrome
     firefox
 
-    # Terminal tools
+    # terminal tools
     kitty
     btop
     ripgrep
@@ -16,30 +16,27 @@
     yazi
     fastfetch
 
-    # Wayland / desktop
+    # wayland / desktop
     waybar
     wofi
     hyprpaper
     hyprlock
     hypridle
     wl-clipboard
-    wdisplays        # GUI monitor layout tool
+    wdisplays        # gui monitor layout tool
     pavucontrol
     blueman
     networkmanagerapplet
-    nwg-look         # GTK theme switcher UI
+    nwg-look         # gtk theme switcher ui
     imv
     thunar
     thunar-volman
     thunar-archive-plugin
     tumbler
 
-    # Dev
-    rustup
-    flutter
-    nodejs
+    # dev
 
-    # Apps
+    # apps
     obsidian
     spotify
     discord
