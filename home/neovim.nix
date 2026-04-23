@@ -16,6 +16,7 @@
       git
       ripgrep
       fd
+      stylua
     ];
   };
 

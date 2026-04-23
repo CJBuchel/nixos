@@ -16,18 +16,18 @@ map("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true })
 map("n", "<C-g>", ":Neogit<CR>", { silent = true })
 
 -- Buffer switching
-map("n", "<Tab>",   ":bnext<CR>",     { silent = true })
+map("n", "<Tab>", ":bnext<CR>", { silent = true })
 map("n", "<S-Tab>", ":bprevious<CR>", { silent = true })
 map("n", "<leader>x", ":bdelete<CR>", { silent = true })
 
 -- Move lines up/down with Alt+Arrow (exactly like Zed)
-map("n", "<A-Down>",  ":m .+1<CR>==",        { silent = true })
-map("n", "<A-Up>",    ":m .-2<CR>==",        { silent = true })
-map("v", "<A-Down>",  ":m '>+1<CR>gv=gv",   { silent = true })
-map("v", "<A-Up>",    ":m '<-2<CR>gv=gv",   { silent = true })
+map("n", "<A-Down>", ":m .+1<CR>==", { silent = true })
+map("n", "<A-Up>", ":m .-2<CR>==", { silent = true })
+map("v", "<A-Down>", ":m '>+1<CR>gv=gv", { silent = true })
+map("v", "<A-Up>", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- Indenting with Tab/Shift+Tab in visual mode (like Zed)
-map("v", "<Tab>",   ">gv", { silent = true })
+map("v", "<Tab>", ">gv", { silent = true })
 map("v", "<S-Tab>", "<gv", { silent = true })
 
 -- Window navigation
@@ -37,7 +37,7 @@ map("n", "<C-j>", "<C-w>j", { silent = true })
 map("n", "<C-k>", "<C-w>k", { silent = true })
 
 -- Save
-map("n", "<C-s>", ":w<CR>",  { silent = true })
+map("n", "<C-s>", ":w<CR>", { silent = true })
 map("i", "<C-s>", "<Esc>:w<CR>", { silent = true })
 
 -- Better up/down on wrapped lines

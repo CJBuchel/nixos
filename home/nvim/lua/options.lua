@@ -27,16 +27,16 @@ opt.cursorline = true
 -- Whitespace
 opt.list = true
 opt.listchars = {
-  tab      = "→ ",
-  trail    = "·",
-  nbsp     = "␣",
-  extends  = "›",
-  precedes = "‹",
+	tab = "→ ",
+	trail = "·",
+	nbsp = "␣",
+	extends = "›",
+	precedes = "‹",
 }
 
 -- Behaviour
-opt.clipboard = "unnamedplus"   -- system clipboard (fixes your copy/paste issue)
-opt.undofile = true             -- persistent undo history
+opt.clipboard = "unnamedplus" -- system clipboard (fixes your copy/paste issue)
+opt.undofile = true -- persistent undo history
 opt.swapfile = false
 opt.updatetime = 100
 opt.splitright = true

@@ -77,6 +77,16 @@
       glib
       gtk3
       libX11
+      libGL
+      libX11
+      libXext
+      libXfixes
+      libXrender
+      libXcursor
+      libXrandr
+      libxi
+      curl
+      openssl
     ];
   };
 
@@ -108,14 +118,7 @@
     git
     gh
     gcc
-    distrobox
-    podman
   ];
-
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
 
   # Audio
   services.pipewire = {

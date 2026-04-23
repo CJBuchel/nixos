@@ -16,22 +16,12 @@
       nix-shell = "nix shell --impure";
       nix-run = "nix run --impure";
       mkbox = ''distrobox create --init-hooks "echo 'export ZDOTDIR=~/.config/zsh-dev' | sudo tee /etc/zsh/zshenv"'';
+      dev = "nix develop ~/nixos-config/devshell";
     };
 
     initContent = ''
     '';
   };
-
-  # Setup a copied zsh env for distrobox and other programs that need write access
-  home.activation.setupDevZsh = ''
-    mkdir -p $HOME/.config/zsh-dev
-    if [ ! -f $HOME/.config/zsh-dev/.zshrc ]; then
-      echo '[ -f ~/.zshrc ] && source ~/.zshrc' > $HOME/.config/zsh-dev/.zshrc
-    fi
-    if [ ! -f $HOME/.config/zsh-dev/.zshenv ]; then
-      echo '[ -f ~/.zshenv ] && source ~/.zshenv' > $HOME/.config/zsh-dev/.zshenv
-    fi
-  '';
 
   home.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = "1";
