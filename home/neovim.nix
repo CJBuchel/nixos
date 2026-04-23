@@ -17,6 +17,7 @@
       ripgrep
       fd
       stylua
+      curl
     ];
   };
 

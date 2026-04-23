@@ -17,7 +17,6 @@ require("lazy").setup({
 		{ import = "plugins.ui" },
 		{ import = "plugins.editor" },
 		{ import = "plugins.lsp" },
-		--{ import = "plugins.ai" },
 		{ import = "plugins.flutter" },
 	},
 	change_detection = { notify = false },

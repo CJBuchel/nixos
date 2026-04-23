@@ -28,6 +28,7 @@ opt.cursorline = true
 opt.list = true
 opt.listchars = {
 	tab = "→ ",
+	space = "•",
 	trail = "·",
 	nbsp = "␣",
 	extends = "›",

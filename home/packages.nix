@@ -8,7 +8,6 @@
 
     # terminal tools
     kitty
-    btop
     ripgrep
     fd
     jq
@@ -35,6 +34,7 @@
     tumbler
 
     # dev
+    claude-code
 
     # apps
     obsidian
