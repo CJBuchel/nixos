@@ -7,15 +7,14 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      rebuild = "git -C ~/nixos-config add -A && sudo nixos-rebuild switch --flake ~/nixos-config#andromeda";
+      rebuild = "git -C ~/nixos-config add -A && sudo nixos-rebuild switch --flake ~/nixos-config#andromeda --impure";
       rebuild-push = "rebuild && git -C ~/nixos-config push";
-      rebuild-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild boot --flake ~/nixos-config#andromeda";
+      rebuild-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild boot --flake ~/nixos-config#andromeda --impure";
       ls = "ls --color=auto";
       ll = "ls -lah --color=auto";
       nv = "nvim";
       nix-shell = "nix shell --impure";
       nix-run = "nix run --impure";
-      mkbox = ''distrobox create --init-hooks "echo 'export ZDOTDIR=~/.config/zsh-dev' | sudo tee /etc/zsh/zshenv"'';
       dev = "nix develop ~/nixos-config/devshell";
     };
 
